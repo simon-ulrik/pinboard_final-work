@@ -10,9 +10,10 @@
   </div>
 </template>
 
-<style>
-  .app {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-</style>
+<script>
+import './index.css'
+
+export default {
+  
+}
+</script>

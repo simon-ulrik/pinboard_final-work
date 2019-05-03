@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from './views/Home';
 import About from './views/About';
-import './App.css';
 
 export default class App extends Component {
   render() {
