@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from './components/Header';
 import Home from './views/Home';
 import About from './views/About';
 
@@ -8,10 +9,7 @@ export default class App extends Component {
     return (
       <Router>
         <div className="app">
-          <header>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </header>
+          <Header/>
           <div className="views">
             <Switch>
               <Route path="/" exact component={Home}/>

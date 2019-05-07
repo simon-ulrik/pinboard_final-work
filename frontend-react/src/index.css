@@ -1,4 +1,4 @@
-body {
+body, html {
   margin: 0;
   padding: 0;
 }
@@ -7,4 +7,114 @@ body {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   background-color: aqua;
+  width: 100vw;
+  height: 100vh;
+}
+
+.header--main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  height: 10vh;
+  width: 100vw;
+  background-color: white;
+}
+
+.header__item {
+  margin-left: 5%;
+}
+
+.side-menu {
+  position: absolute;
+  height: 100vh;
+  width: 0vw;
+  overflow: hidden;
+  background-color: white;
+  animation: 0.3s ease forwards;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.side-menu--closed {
+  animation-name: side-menu-detract;
+}
+
+.side-menu--open {
+  animation-name: side-menu-expand;
+  box-shadow: 0px 0px 22px 8px rgba(0, 0, 0, 0.185);
+  overflow: auto;
+}
+
+.side-menu__item {
+  width: 100%;
+  display: flex;
+}
+
+.toggle-menu-button {
+  height: 10%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.toggle-menu-button i {
+  font-size: 34px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 2%;
+  cursor: pointer;
+}
+
+.toggle-menu-button h2 {
+  margin-top: auto;
+  margin-bottom: auto;
+  cursor: pointer;
+}
+
+.menu-nav {
+  height: 10%;
+}
+
+.menu-nav__list {
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.menu-nav__list__item a {
+  color: black;
+}
+
+.menu-nav__list__item a i {
+  font-size: 48px;
+}
+
+.link--active {
+  text-decoration: underline;
+}
+
+@keyframes side-menu-expand {
+  from {
+    display: none;
+    width: 0vw;
+  }
+  to {
+    display: flex;
+    width: 30vw;
+  }
+}
+
+@keyframes side-menu-detract {
+  from {
+    display: flex;
+    width: 30vw;
+  }
+  to {
+    display: none;
+    width: 0vw;
+  }
 }
