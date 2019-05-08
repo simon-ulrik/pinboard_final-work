@@ -18,12 +18,18 @@ export default class SideMenu extends Component {
   render() {
     return (
       <>
-      <div className="toggle-menu-button">
-        <i className="material-icons" onClick={() => this.toggleOpen()}>menu</i>
-      </div>
-      {this.renderMenu()}
+        <div className="toggle-menu-button">
+          <i className="material-icons" onClick={() => this.toggleOpen()}>menu</i>
+        </div>
+        {this.renderMenu()}
+        {this.renderOverlay()}
       </>
     )
+  }
+
+  renderOverlay = () => {
+    const overlayClassName = this.state.open ? "invis-overlay--active" : ""
+    return <div className={`invis-overlay ${overlayClassName}`} onClick={() => this.toggleOpen()}></div>
   }
 
   renderMenu = () => {
