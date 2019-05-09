@@ -17,13 +17,13 @@ export default class SideMenu extends Component {
 
   render() {
     return (
-      <>
-        <div className="toggle-menu-button">
+      <div className="menu-container">
+        <div className="open-menu-button">
           <i className="material-icons" onClick={() => this.toggleOpen()}>menu</i>
         </div>
         {this.renderMenu()}
         {this.renderOverlay()}
-      </>
+      </div>
     )
   }
 
@@ -41,7 +41,7 @@ export default class SideMenu extends Component {
     return (
       <div className={`side-menu ${menuClassName}`}>
 
-        <div className="side-menu__item toggle-menu-button">
+        <div className="side-menu__item close-menu-button">
           <i className="material-icons" onClick={() => toggleOpen()}>arrow_back</i>
           <h2 onClick={() => toggleOpen()}>Close menu</h2>
         </div>

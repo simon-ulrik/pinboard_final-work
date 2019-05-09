@@ -1,9 +1,10 @@
 <template>
   <div class="app">
-    <header>
+    <!-- <header>
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
-    </header>
+    </header> -->
+    <Header></Header>
     <div class="views">
       <router-view/>
     </div>
@@ -11,9 +12,17 @@
 </template>
 
 <script>
-import './index.css'
+import Header from './components/Header.vue'
 
 export default {
-  
+  components: {
+    Header,
+  }
 }
 </script>
+
+<style lang="scss">
+@import './index.css'
+</style>
+
+
