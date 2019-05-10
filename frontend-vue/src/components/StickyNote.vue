@@ -1,9 +1,9 @@
 <template>
   <div
-    @mouseleave="releaseSticky"
     @mousedown="grabSticky($event)"
     @mousemove="moveSticky($event)"
     @mouseup="releaseSticky"
+    @mouseleave="releaseSticky"
     class="sticky-note"
     :class="{ 'sticky-note--grabbed': grabbed, 'sticky-note--released': !grabbed }"
   >
