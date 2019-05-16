@@ -1,7 +1,7 @@
 <template>
   <div
     @mousedown="grabSticky($event)"
-    @mousemove="moveSticky($event)"
+    @mousemove="moveSticky()"
     @mouseup="releaseSticky"
     @mouseleave="releaseSticky"
     class="sticky-note"
@@ -28,8 +28,8 @@ export default {
   mounted() {
     if (localStorage[`${this.data.key}-x`] && [`${this.data.key}-y`]) {
       this.positionStyle = {
-      top: localStorage[`${this.data.key}-x`],
-      left: localStorage[`${this.data.key}-y`]
+        top: localStorage[`${this.data.key}-x`],
+        left: localStorage[`${this.data.key}-y`]
       }
     }
   },
@@ -39,7 +39,7 @@ export default {
       this.offset = { x: event.offsetX, y: event.offsetY }
       this.$emit('grabbed', this.data.key)
     },
-    moveSticky(event) {
+    moveSticky() {
       if (this.grabbed) {
         this.positionStyle = {
           top: `${this.cursorCordinates.y - this.pinboardTop - this.offset.y}px`,

@@ -1,9 +1,9 @@
 <template>
   <div @mousemove="setCursorCordinates($event)" class="pinboard">
     <StickyNote
-      v-for="(index) in noteList"
-      :data="notes[index]"
-      :key="index"
+      v-for="(key) in noteList"
+      :data="notes[key]"
+      :key="key"
       :pinboardTop="top"
       :cursorCordinates="cursorCordinates"
       @grabbed="zIndexOrderChange($event)"
@@ -22,7 +22,6 @@ export default {
     return {
       top: 0,
       cursorCordinates: {},
-      reset: false,
       noteList: [1,2,3,4],
       notes: {
         "1": {
@@ -62,9 +61,7 @@ export default {
   },
   mounted() {
     this.top = this.$el.getBoundingClientRect().top
-    if (localStorage.noteOrder) {
-      this.noteList = localStorage.noteOrder.split(",").map( str => { return Number(str) })
-    }
+    this.noteList = localStorage.noteOrder ? localStorage.noteOrder.split(",").map( str => { return Number(str) }) : this.noteList
   },
   methods: {
     zIndexOrderChange(event) {
@@ -72,7 +69,7 @@ export default {
       list.forEach((key, i) => {
         if (key === event) {
           list.splice(i, 1); list.push(key)
-          localStorage.noteOrder = this.noteList  = list
+          localStorage.noteOrder = this.noteList = list
         }
       })
     },

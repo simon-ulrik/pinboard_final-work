@@ -6,7 +6,22 @@ export default class StickyNote extends Component {
     super(props)
     this.state = {
       offset: {},
-      grabbes: false,
+      grabbed: false,
+      positionStyle: {
+        top: "0px",
+        left: "0px"
+      }
+    }
+  }
+
+  componentDidMount() {
+    if (localStorage[`${this.props.data.key}-x`] && [`${this.props.data.key}-y`]) {
+      this.setState({
+        positionStyle: {
+          top: localStorage[`${this.props.data.key}-x`],
+          left: localStorage[`${this.props.data.key}-y`]
+        }
+      })
     }
   }
 
@@ -15,12 +30,19 @@ export default class StickyNote extends Component {
       grabbed: true,
       offset: { x: event.nativeEvent.offsetX, y: event.nativeEvent.offsetY }
     })
+    this.props.grabbed(this.props.data.key)
   }
 
-  moveSticky = event => {
+  moveSticky = () => {
     if (this.state.grabbed) {
-      event.target.style.top = `${this.props.cursorCordinates.y - this.props.pinboardTop - this.state.offset.y}px`
-      event.target.style.left = `${this.props.cursorCordinates.x - this.state.offset.x}px`
+      this.setState({
+        positionStyle: {
+          top: `${this.props.cursorCordinates.y - this.props.pinboardTop - this.state.offset.y}px`,
+          left: `${this.props.cursorCordinates.x - this.state.offset.x}px`
+        }
+      })
+      localStorage[`${this.props.data.key}-x`] = `${this.props.cursorCordinates.y - this.props.pinboardTop - this.state.offset.y}px`
+      localStorage[`${this.props.data.key}-y`] = `${this.props.cursorCordinates.x - this.state.offset.x}px`
     }
   }
 
@@ -32,6 +54,7 @@ export default class StickyNote extends Component {
     const {
       state: {
         grabbed,
+        positionStyle,
       },
       grabSticky,
       moveSticky,
@@ -46,7 +69,9 @@ export default class StickyNote extends Component {
         onMouseUp={releaseSticky}
         onMouseLeave={releaseSticky}
         className={`sticky-note ${StickyNoteClassName}`}
+        style={positionStyle}
       >
+        key: {this.props.data.key}
       </div>
     )
   }
