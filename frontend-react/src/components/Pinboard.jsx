@@ -17,7 +17,6 @@ export default class Pinboard extends Component {
           text: "",
           todo: "",
           picSrc: "",
-          zIndex: ""
         },
         "2": {
           key: 2,
@@ -25,7 +24,6 @@ export default class Pinboard extends Component {
           text: "",
           todo: "",
           picSrc: "",
-          zIndex: ""
         },
         "3": {
           key: 3,
@@ -33,7 +31,6 @@ export default class Pinboard extends Component {
           text: "",
           todo: "",
           picSrc: "",
-          zIndex: ""
         },
         "4": {
           key: 4,
@@ -41,7 +38,6 @@ export default class Pinboard extends Component {
           text: "",
           todo: "",
           picSrc: "",
-          zIndex: ""
         }
       }
     }
