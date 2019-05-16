@@ -1,2 +1,2 @@
-# anslagstavla-slutarbete
-en anslagstavla-app byggd i två versioner i två olika ramverk: React JS och Vue JS
+# Pinboard(final work)
+The same pinboard app built in two different frameworks: React JS och Vue JS
