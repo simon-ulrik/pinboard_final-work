@@ -20,5 +20,3 @@ export default {
 <style lang="scss">
 @import './index.css'
 </style>
-
-

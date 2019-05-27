@@ -40,12 +40,28 @@ body, html {
 
 .sticky-note {
   position: absolute;
-  height: 100px;
-  width: 100px;
-  background-color: yellow;
+  height: auto;
+  width: auto;
+  min-width: 100px;
+  min-height: 100px;
   font-size: 12px;
   animation: 0.5s ease forwards;
   box-shadow: 0px 0px 25px -3px rgba(0,0,0,0.53);
+  padding: 0px 2% 2% 2%;
+  background-image: url('./assets/paper-texture.jpg');
+}
+
+.grabber {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.027);
+}
+
+.grabber__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .sticky-note--grabbed {
@@ -54,6 +70,17 @@ body, html {
 
 .sticky-note--released {
   animation-name: sticky-note-released;
+}
+
+.sticky-note__btns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.sticky-note__btn i {
+  cursor: pointer;
 }
 
 @keyframes sticky-note-grabbed {
@@ -160,6 +187,77 @@ body, html {
 .side-menu__item {
   width: 100%;
   display: flex;
+}
+
+.create-note-btn {
+  height: auto;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.create-note-btn i {
+  font-size: 200px;
+  cursor: pointer;
+}
+
+.create-note__options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.title-feild {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.title-feild__input {
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  margin-block-end: 0.67em;
+  margin-block-start: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  border: rgba(0, 0, 0, 0.233) 3px solid;
+  border-radius: 3px;
+}
+
+.text-feild {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.text-feild__input {
+  font-size: 1em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  height: initial;
+  min-width: 250px;
+  min-height: 150px;
+  border: rgba(0, 0, 0, 0.233) 3px solid;
+  border-radius: 3px;
+}
+
+.text-feild__paragraph {
+  text-align: left;
+}
+
+.text-feild__paragraph p {
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .close-menu-button {

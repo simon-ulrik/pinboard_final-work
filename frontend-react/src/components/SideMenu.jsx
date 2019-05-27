@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
+import CreateNoteBtn from "./CreateNoteBtn";
 
 export default class SideMenu extends Component {
 
@@ -60,7 +61,7 @@ export default class SideMenu extends Component {
             </li>
           </ul>
         </nav>
-
+        <CreateNoteBtn/>
       </div>
     )
   }

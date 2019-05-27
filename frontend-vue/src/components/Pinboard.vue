@@ -57,7 +57,7 @@ export default {
   },
   mounted() {
     this.top = this.$el.getBoundingClientRect().top
-    this.noteList = localStorage.noteOrder ? localStorage.noteOrder.split(",").map( str => { return Number(str) }) : this.noteList
+    this.noteList = localStorage.noteList ? localStorage.noteList.split(",").map( str => { return Number(str) }) : this.noteList
   },
   methods: {
     zIndexOrderChange(event) {
@@ -65,7 +65,7 @@ export default {
       list.forEach((key, i) => {
         if (key === event) {
           list.splice(i, 1); list.push(key)
-          localStorage.noteOrder = this.noteList = list
+          localStorage.noteList = this.noteList = list
         }
       })
     },

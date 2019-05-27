@@ -9,44 +9,14 @@ export default class Pinboard extends Component {
     this.state = {
       top: 0,
       cursorCordinates: {},
-      noteList: [1,2,3,4],
-      notes: {
-        "1": {
-          key: 1,
-          title: "",
-          text: "",
-          todo: "",
-          picSrc: "",
-        },
-        "2": {
-          key: 2,
-          title: "",
-          text: "",
-          todo: "",
-          picSrc: "",
-        },
-        "3": {
-          key: 3,
-          title: "",
-          text: "",
-          todo: "",
-          picSrc: "",
-        },
-        "4": {
-          key: 4,
-          title: "",
-          text: "",
-          todo: "",
-          picSrc: "",
-        }
-      }
+      noteList: [1]
     }
   }
 
   componentDidMount() {
     this.setState ({
       top: document.querySelector(".pinboard").getBoundingClientRect().top,
-      noteList: localStorage.noteOrder ? localStorage.noteOrder.split(",").map( str => { return Number(str) }) : this.state.noteList
+      noteList: localStorage.noteList ? localStorage.noteList.split(",").map( str => { return Number(str) }) : this.state.noteList
     })
   }
 
@@ -56,7 +26,7 @@ export default class Pinboard extends Component {
       if (key === event) {
         list.splice(i, 1); list.push(key)
         this.setState({ noteList: list })
-        localStorage.noteOrder = list
+        localStorage.noteList = list
       }
     })
   }
@@ -75,10 +45,10 @@ export default class Pinboard extends Component {
   }
 
   renderStickyNotes = () => {
-    const { zIndexOrderChange, state: { notes, noteList, top, cursorCordinates } } = this
+    const { zIndexOrderChange, state: { noteList, top, cursorCordinates } } = this
     return noteList.map(key => {
       return <StickyNote
-        data={notes[key]}
+        id={key}
         key={key}
         pinboardTop={top}
         cursorCordinates={cursorCordinates}
